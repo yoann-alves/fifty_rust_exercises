@@ -10,30 +10,49 @@ Create a CLI program that:
 
 ## 📚 Concepts
 
-- Getting user input (CLI args, stdin, or other)
+- Getting user input
 - String handling
 - Control flow (handling the "no input" case)
+
+## 📖 Background
+
+**Command-line programs** are the foundation of system tools. They take input, process it, and produce output.
+
+**The classic "Hello World"** is usually static, but real programs need to be dynamic:
+
+```
+Static:   Always prints "Hello, World!"
+Dynamic:  Prints "Hello, Alice!" when given a name
+```
+
+**Input methods vary:**
+
+- Some programs read from arguments: `program Alice`
+- Some read from stdin: user types when prompted
+- Some use configuration files
+- Some combine multiple methods
+
+Your job: make the program greet someone by name, or use a default greeting.
 
 ## ⚙️ Requirements
 
 **First Pass:**
 
-- ✅ Works with provided input
-- ✅ Works without input
+- ✅ Greets with provided name
+- ✅ Greets with "World" when no name given
 - ✅ No compiler warnings
 
 **Second Pass:**
 
 - ✅ **Zero warnings**: `cargo clippy` must pass clean
-- ✅ **Formatted**: Run `cargo fmt` - code follows Rust style
-- ✅ **Documented**: Function-level comment explaining what the program does
-- ✅ **Edge cases handled**:
-  - Empty string input → treat as "World"
-  - Whitespace-only input → treat as "World"
-  - Leading/trailing whitespace → trimmed
-- ✅ **Error handling**: No `.unwrap()` or `.expect()` - handle errors properly
-- ✅ **Variable naming**: Clear, intention-revealing names
-- ✅ **Code you're proud of**: You'd show this in a code review
+- ✅ **Formatted**: Run `cargo fmt`
+- ✅ **Documented**: Brief comment explaining the program
+- ✅ **Edge cases**:
+  - Empty string → treat as "World"
+  - Only whitespace → treat as "World"
+  - Extra whitespace → trimmed away
+- ✅ **Error handling**: Handle errors properly (no `.unwrap()` or `.expect()`)
+- ✅ **Clean code**: Clear variable names, readable logic
 
 ## 🚫 Constraints
 
@@ -42,27 +61,69 @@ Create a CLI program that:
 
 ## 💡 Approaches
 
-You can get input several ways:
+**Input sources to consider:**
 
 - Command-line arguments
-- Standard input
+- Standard input (keyboard)
 - Interactive prompt
-- Or invent your own approach
+- Environment variables
+- Configuration file
+- Hard-coded default
 
-**Choose the method that makes sense to you.** There's no "correct" way.
+**String handling:**
+
+- Trimming whitespace
+- Checking for empty strings
+- Formatting output
+
+**Error scenarios:**
+
+- What if input fails?
+- What if nothing is provided?
+- What if user provides multiple inputs?
+
+Pick whatever approach makes sense for your design.
 
 ## ✅ Validation
 
+Your program should produce these results:
+
 ```bash
-# However you implement it, these should work:
+# With no input
 $ cargo run
 Hello, World!
 
+# With a name (exact method depends on your implementation)
 $ cargo run
-# (if using stdin) User types: Alice
+Alice
 Hello, Alice!
+
+# Empty or whitespace should default to World
+$ cargo run
+
+Hello, World!
 ```
+
+Edge cases to verify:
+
+```
+Input: "Alice"      → "Hello, Alice!"
+Input: "  Bob  "    → "Hello, Bob!"
+Input: ""           → "Hello, World!"
+Input: "   "        → "Hello, World!"
+```
+
+## 🔍 Challenge
+
+Add support for greeting multiple people at once:
+
+```
+Input: Alice Bob Carol
+Output: Hello, Alice, Bob, and Carol!
+```
+
+Or implement greeting in different languages based on a flag.
 
 ---
 
-**Next:** [calculator_02](../calculator_02/README.md)
+**Next:** [02_calculator](../02_calculator/README.md)

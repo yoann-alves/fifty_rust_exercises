@@ -11,17 +11,38 @@ Create a program that prints numbers from 1 to 100, but:
 
 ## 📚 Concepts
 
-- Loops (iteration from 1 to 100)
+- Loops (iteration)
 - Modulo operator (checking divisibility)
-- Conditional logic (multiple conditions)
-- String formatting and printing
+- Conditional logic
+- String formatting
+
+## 📖 Background
+
+**FizzBuzz** is a classic programming exercise often used in interviews. It tests basic programming skills: loops, conditionals, and divisibility.
+
+**The rules are simple:**
+
+```
+1 → "1"
+2 → "2"
+3 → "Fizz"     (divisible by 3)
+4 → "4"
+5 → "Buzz"     (divisible by 5)
+6 → "Fizz"     (divisible by 3)
+...
+15 → "FizzBuzz" (divisible by both!)
+```
+
+**The trick:** Order matters when checking conditions. If you check for 3 and 5 separately before checking for both, you'll never reach the FizzBuzz case.
+
+**Divisibility test:** A number is divisible by N if `number % N == 0`
 
 ## ⚙️ Requirements
 
 **First Pass:**
 
-- ✅ Prints all numbers 1-100 with correct Fizz/Buzz logic
-- ✅ Correct output for all cases
+- ✅ Prints numbers 1 to 100
+- ✅ Correct Fizz/Buzz/FizzBuzz logic
 - ✅ No compiler warnings
 
 **Second Pass:**
@@ -29,38 +50,34 @@ Create a program that prints numbers from 1 to 100, but:
 - ✅ **Zero warnings**: `cargo clippy` must pass clean
 - ✅ **Formatted**: Run `cargo fmt`
 - ✅ **Documented**: Brief comment explaining the logic
-- ✅ **Clean conditionals**: Order matters - think about which condition to check first
-- ✅ **Consider extending**:
-  - Make the range configurable (1 to N)
-  - Make the divisors configurable (not just 3 and 5)
-  - Add tests (unit tests for individual number logic)
-- ✅ **Idiomatic code**: Use Rust's iteration patterns effectively
+- ✅ **Clean conditionals**: Proper order of checks
+- ✅ **Idiomatic Rust**: Use appropriate iteration patterns
 
 ## 🚫 Constraints
 
 - Standard library only
 - No external crates
-- Must print exactly 100 lines of output
+- Must print exactly 100 lines
 
 ## 💡 Approaches
 
-Loops:
+**Loop options:**
 
-- `for` loop with range
-- `while` loop with counter
+- Range-based iteration
+- While loop with counter
 - Iterator methods
 
-Conditional logic:
+**Conditional structures:**
 
-- Nested `if/else`
+- If/else chain
 - Match expression
-- Pattern matching with guards
+- Separate checks vs combined check
 
-Think about: What order should you check the conditions?
+**Key question:** In what order should you check divisibility? Think about which cases overlap.
 
 ## ✅ Validation
 
-First few lines of output should be:
+First 15 lines should be:
 
 ```
 1
@@ -80,8 +97,22 @@ Fizz
 FizzBuzz
 ```
 
-Last line (100) should be: `Buzz`
+Other important checks:
+
+```
+Line 30: FizzBuzz
+Line 45: FizzBuzz
+Line 60: FizzBuzz
+Line 99: Fizz
+Line 100: Buzz
+```
+
+## 🔍 Challenge
+
+Make FizzBuzz configurable: allow the user to specify the range (not just 1-100) and the divisors (not just 3 and 5). For example, "Bizz" for 7, "Fuzz" for 11.
+
+Or implement FizzBuzz as a function that returns a String for any given number, then write tests for it.
 
 ---
 
-**Previous:** [calculator_02](../calculator_02/README.md) | **Next:** [temperature_conversion_04](../temperature_conversion_04/README.md)
+**Previous:** [02_calculator](../02_calculator/README.md) | **Next:** [04_temperature_conversion](../04_temperature_conversion/README.md)

@@ -1,0 +1,3 @@
+[workspace]
+members = ["pass_1", "pass_2"]
+resolver = "2"
