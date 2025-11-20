@@ -1,6 +1,6 @@
 # 🦀 Fifty Rust Exercises
 
-A structured journey through Rust fundamentals - from zero to competent.
+A structured journey through Rust fundamentals - from zero to maybe competent.
 
 ## 📖 Purpose
 
@@ -22,50 +22,69 @@ Based on "The Rust Programming Language" (The Book) with emphasis on:
 
 ## 🗂️ Structure
 
+Each exercise is a **Cargo workspace** with two independent projects:
+
 ```
 exercises/
-├── 01_hello_custom/          # Level 1: Basic Syntax (1-15)
+├── 01_hello_custom/              # Level 1: Basic Syntax (1-15)
+│   ├── Cargo.toml                # Workspace definition
+│   ├── README.md                 # Exercise instructions
+│   ├── pass1/                    # First pass: Make it work
+│   │   ├── Cargo.toml
+│   │   └── src/main.rs
+│   └── pass2/                    # Second pass: Make it excellent
+│       ├── Cargo.toml
+│       └── src/main.rs
 ├── 02_calculator/
 ├── ...
-├── 16_anagram_finder/        # Level 2: Collections (16-25)
+├── 16_anagram_finder/            # Level 2: Collections (16-25)
 ├── ...
-├── 26_file_reader/           # Level 3: Files & Errors (26-35)
+├── 26_file_reader/               # Level 3: Files & Errors (26-35)
 ├── ...
-├── 36_library/               # Level 4: Structs & Traits (36-45)
+├── 36_library/                   # Level 4: Structs & Traits (36-45)
 ├── ...
-├── 46_concurrent_downloader/ # Level 5: Concurrency (46-50)
-└── ...
+└── 46_concurrent_downloader/     # Level 5: Concurrency (46-50)
 ```
 
 ## 🚀 Getting Started
 
 1. **Prerequisites**: Rust installed (`rustup`)
 
-   - See [docs/SETUP.md](docs/SETUP.md) for detailed instructions
-
 2. **Clone this repo**:
 
 ```bash
-   git clone https://github.com/yoann-alves/fifty_rust_exercises.git
-   cd fifty_rust_exercises
+git clone https://github.com/yoann-alves/fifty_rust_exercises.git
+cd fifty_rust_exercises
 ```
 
-3. **Start with exercise 1**:
+3. **Start with exercise 1 - First pass**:
 
 ```bash
-   cd exercises/01_hello_custom
-   cargo run
+cd exercises/01_hello_custom/pass1
+cargo run
 ```
 
 4. **Read the exercise README** before coding
 5. **Implement, test, iterate**
-6. **Move to next exercise**
+6. **When ready, move to second pass**:
+
+```bash
+cd ../pass2
+# Refactor and improve for production quality
+cargo run
+cargo clippy
+cargo fmt
+```
+
+7. **Move to next exercise**
 
 ## 📚 Resources
 
 - [The Rust Book](https://doc.rust-lang.org/book/)
 - [Rust By Example](https://doc.rust-lang.org/rust-by-example/)
 - [Rust Standard Library](https://doc.rust-lang.org/std/)
+
+See [docs/RESOURCES.md](docs/RESOURCES.md) for more.
 
 ## 🎓 Learning Path
 
