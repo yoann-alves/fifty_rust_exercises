@@ -33,7 +33,8 @@ exercises/
 ├── ...
 ├── 36_library/               # Level 4: Structs & Traits (36-45)
 ├── ...
-└── 46_concurrent_downloader/ # Level 5: Concurrency (46-50)
+├── 46_concurrent_downloader/ # Level 5: Concurrency (46-50)
+└── ...
 ```
 
 ## 🚀 Getting Started
@@ -65,8 +66,6 @@ exercises/
 - [The Rust Book](https://doc.rust-lang.org/book/)
 - [Rust By Example](https://doc.rust-lang.org/rust-by-example/)
 - [Rust Standard Library](https://doc.rust-lang.org/std/)
-
-See [docs/RESOURCES.md](docs/RESOURCES.md) for more.
 
 ## 🎓 Learning Path
 
